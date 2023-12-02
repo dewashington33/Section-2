@@ -210,19 +210,152 @@ allEvens([1, 2, 3]) //false
 // console.log(allEvens2(nums))
 
 // get the total of all the prices in the array
-prices = [9.99, 1.50, 19.99, 49.99, 30.50]
-const totalPrice = prices.reduce((total, price) => {
-    return total + price
+// prices = [9.99, 1.50, 19.99, 49.99, 30.50]
+// const totalPrice = prices.reduce((total, price) => {
+//     return total + price
+// })
+// console.log(`The total price of the entire array is ${totalPrice}`)
+
+// // Find the minimum price in the array
+// const minPrice = prices.reduce((min, price) => {
+//     if (price < min) {
+//         return price;
+//     }
+//     return min;
+// })
+
+// console.log(minPrice)
+
+// Default parameters 
+// 6 is the default value
+// function rollDie(numSides = 6) {
+//     return Math.floor(Math.random() * numSides) + 1
+// }
+
+// //All default values should come after the non-default params
+// function greet(person, msg = "Hey there") {
+//     console.log(`${msg}, ${person}`)
+// }
+
+// greet("Joe");
+
+// *** Spread on Objects ***************************
+// const feline = {
+//     legs: 4,
+//     family: 'Felidae'
+// }
+// const canine = {
+//     family: 'Canine',
+//     furry: true
+// }
+
+// const dog = { ...canine, isPet: true };
+// console.log(dog);
+
+// const lion = { ...feline, genus: 'Panthera' }
+// console.log(lion);
+
+// const catDog = { ...feline, ...canine }
+// console.log(catDog);
+
+// // ******** Rest Parameters *************
+// // Sum the values passed in, its called rest so collect the rest of the values
+// function sum(...nums) {
+//     return nums.reduce((total, el) => total + el)
+// }
+
+// const summedValues = sum(1, 2, 3, 4, 5)
+// console.log(summedValues)
+
+// function raceResults(gold, silver, ...everyoneElse) {
+//     console.log(`GOLD MEDAL GOES TO: ${gold}`);
+//     console.log(`SILVER MEDAL GOES TO: ${silver}`);
+//     console.log(`AND THANKS TO EVERYONE ELSE: ${everyoneElse}`);
+// }
+
+// console.log(raceResults('Tammy', 'Fred', 'John', 'Goober'))
+
+// //***** Destructuring Arrays     */
+
+// const scores = [929321, 899341, 888336, 772739, 543671, 243567, 111934]
+
+// const highScore = scores[0];
+// const nextHighestScore = scores[1];
+
+// const [gold, silver, bronze, ...everyoneElse] = scores;
+// console.log(`Gold: ${gold} Silver: ${nextHighestScore} Bronze: ${bronze} Everyone Else: ${everyoneElse}`)
+
+// ******* Destructuring an Object ******/
+const user = {
+    email: 'fred@gmail.com',
+    password: 'abc123',
+    firstName: 'Fred',
+    lastName: 'Flintstone',
+    born: 899,
+    died: 999,
+    bio: 'Lead character in the Flintstones',
+    city: 'Rockville',
+    state: 'GA'
+}
+
+const user2 = {
+    email: 'wilma@gmail.com',
+    firstName: 'Wilma',
+    lastName: 'Flintstone',
+    born: 901,
+    city: 'Tulsa',
+    state: 'Oklahoma'
+}
+
+// const firstName = user.firstName;
+// const lastName = user.lastName;
+// const email = user.email;
+
+// const { email, firstName, lastName, city } = user;
+// console.log(`${firstName} ${lastName} email is ${email} and lives in ${city}`)
+// // change the name of a variable
+// const { born: birthYear } = user;
+// console.log(`${firstName} was born ${birthYear}`)
+
+// using a default value for died since there isn't one associated with Wilma
+// const { firstName, lastName, died = 'N/A' } = user2;
+// console.log(`${firstName} ${lastName} death date is ${died}`)
+
+// Destruturing Params *************************/
+// function fullName(user) {
+//     return `${user.firstName} ${user.lastName}`
+// }
+
+// using destruturing params you would do this ****
+// function fullName(user) {
+//     const { firstName, lastName } = user;
+//     return `${firstName} ${lastName}`
+// }
+
+// or this setting a default value for lastName in case there isn't one
+// function fullName({ firstName, lastName = 'John' }) {
+//     return `${firstName} ${lastName}`
+// }
+
+// console.log(fullName(user))
+
+// Filter the movies based on score
+const movieFilter = movies.filter((movie) => movie.score >= 90);
+console.log(movieFilter)
+
+// or to destructure the previous you can use
+const movieFilter2 = movies.filter(({ score }) => score >= 90)
+console.log(movieFilter2)
+
+const movieRatings = movies.map(movie => {
+    return `${movie.title} (${movie.year}) is rated ${movie.score}`
 })
-console.log(`The total price of the entire array is ${totalPrice}`)
 
-// Find the minimum price in the array
-const minPrice = prices.reduce((min, price) => {
-    if (price < min) {
-        return price;
-    }
-    return min;
+console.log(movieRatings)
+
+// this is what it looks like using desctructuring 
+const movieRatingsDesctructured = movies.map(({ title, score, year }) => {
+    return `${title} (${year}) is rated ${score}`
 })
 
-console.log(minPrice)
-
+console.log(movieRatingsDesctructured)
