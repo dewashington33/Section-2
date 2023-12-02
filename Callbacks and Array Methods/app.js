@@ -159,14 +159,14 @@ const movies = [
 
 // Find the highest rated movie ****************************************
 
-const highestRated = movies.reduce((bestMovie, currMovie) => {
-    if (currMovie.score > bestMovie.score) {
-        return currMovie;
-    }
-    return bestMovie;
-})
+// const highestRated = movies.reduce((bestMovie, currMovie) => {
+//     if (currMovie.score > bestMovie.score) {
+//         return currMovie;
+//     }
+//     return bestMovie;
+// })
 
-console.log(`The highest rated movie in the list is ${highestRated.title} with a score of ${highestRated.score}`)
+// console.log(`The highest rated movie in the list is ${highestRated.title} with a score of ${highestRated.score}`)
 
 // userNames = ['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']
 
